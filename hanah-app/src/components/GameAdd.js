@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import unicorn from '../assets/images/unicorn.png'
 import corn from '../assets/images/corn.png'
+import yes from '../assets/images/yes.png'
+import no from '../assets/images/no.png'
 
 
 const GameAdd = () => {
@@ -48,7 +50,7 @@ const GameAdd = () => {
         setUnicornFirst(uniImage);
 
         for(let i = 0; i< secondNumber; i++) {
-            cornImage.push(<img className="imageCorn" src={corn} alt="corn" />)
+            cornImage.push(<img className="imageUnicorn" src={corn} alt="corn" />)
         }
         setUnicornSecond(cornImage);
         
@@ -97,35 +99,53 @@ const GameAdd = () => {
 
 
     return (
-        <div>
-            <h2 className='mainPage'>Zgadnij wynik</h2>
-            <Link to='/' style={{ textDecoration: 'none'}}>Strona startowa</Link>
-
-            <div className='contener'>
-                <div>
-                    <h1>{firstNum} {operationMath} {secondNum} = </h1>
-                </div>
-
-                <div>
-                    {
-                        arrayAnswer.map((element, index) => <button key={element} value={element} onClick={()=>handleAnswer(element)}>{element}</button>)
-                    }
-                </div>
-                <div>
-                    {message}
-                    {message === "Gratulacje!" ? <h1>{resultNum}</h1> : null}
-                </div>
-                <div>
-                    <button onClick={handleRestart}>Zagraj jeszcze raz</button>
-                </div>
-            </div>
-            <div className='imageUnicorn'>
-                {unicornFirst.map((element) => <div>{element}</div>)}
-            </div>
-            <div className='imageCorn'>
-                {unicornSecond.map((element) => <div>{element}</div>)}
-            </div>
+        <div className='main'>
             
+            <Link to='/' style={{ textDecoration: 'none'}}>Strona startowa</Link>
+            <div className='contener'>
+
+                <div className='test'>
+                    <div>
+                        <h1>{firstNum} {operationMath} {secondNum} = </h1>
+                    </div>
+
+                    <div>
+                        {
+                            arrayAnswer.map((element, index) => <button key={element} value={element} onClick={()=>handleAnswer(element)}>{element}</button>)
+                        }
+                    </div>
+                    <div>
+                        {message === "Gratulacje!" 
+                        ? 
+                        <div>
+                            <h1>{resultNum}</h1>
+                            <img className='imageMessage' src={yes} alt="yes" />
+                        </div> 
+                        : null}
+                        {message === "Błędna odpowiedź :(" 
+                        ?
+                        <div>
+                            <h1>{resultNum}</h1>
+                            <img className='imageMessage' src={no} alt="no" />
+                        </div>
+                        : null}
+                    </div>
+                    <div >
+                        <button onClick={handleRestart}>Zagraj</button>
+                    </div>
+                </div>
+                <div className='test'>
+                    <div className='contener'>
+            
+                        <div className='imageUnicorn'>
+                            {unicornFirst.map((element) => <div>{element}</div>)}
+                        </div>
+                        <div className='imageUnicorn'>
+                            {unicornSecond.map((element) => <div>{element}</div>)}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

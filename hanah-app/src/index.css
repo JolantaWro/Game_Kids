@@ -6,7 +6,7 @@ html {
 }
 
 .mainPage {
-  text-align: center;
+  text-align: left;
   font-size: 50px;
   color: palevioletred;
 }
@@ -15,13 +15,15 @@ html {
   font-size: 50px;
   /* text-align: left; */
   /* padding-left: 400px; */
-  float: left;
+  /* float: left; */
+  width: 900px;
 }
 
 .contener button {
-  font-size: 30px;
-  margin: 5px;
+  font-size: 50px;
+  margin: 10px;
   background-color: pink;
+  
 }
 
 /* .imageUnicorn div {
@@ -30,19 +32,35 @@ html {
   height: 150px;
 } */
 
-.imageUnicorn {
-  width: 150px;
-  height: 150px;
-  float: left;
-  padding: 30px;
+img.imageUnicorn {
+  width: 120px;
+  height: 120px;
+  /* float: left; */
 }
 
-.imageCorn {
+img.imageMessage {
+  width: 300px;
+  height: 300px;
+}
+
+div.imageUnicorn {
+  display: inline-block;
+  width: 400px;
+}
+
+.test{
+  /* float: left; */
+  /* padding: 30px; */
+  display: inline-block;
+  width: 400px;
+}
+
+/* .imageCorn {
   width: 150px;
   height: 150px;
   float: left;
   padding: 30px;
-}
+} */
 
 /* .imageCorn div {
   float: left;
