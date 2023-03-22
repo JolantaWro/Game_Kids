@@ -7,12 +7,14 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import SimpleGame from './components/SimpleGame';
 import EasyGame from './components/EasyGame'
 import GameAdd from './components/GameAdd';
+import Words from './components/Words';
 
 const routing = (
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Start />}/>
       <Route path='/gameAdd' element={<GameAdd />}/>
+      <Route path='/words' element={<Words />}/>
       <Route path='/gameOne' element={<EasyGame />}/>
       <Route path='/gameTwo' element={<SimpleGame />}/>
     </Routes>
