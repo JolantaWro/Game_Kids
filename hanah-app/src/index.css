@@ -26,12 +26,6 @@ html {
   
 }
 
-/* .imageUnicorn div {
-  float: left;
-  width: 150px;
-  height: 150px;
-} */
-
 img.imageUnicorn {
   width: 120px;
   height: 120px;
@@ -55,16 +49,16 @@ div.imageUnicorn {
   width: 400px;
 }
 
-/* .imageCorn {
-  width: 150px;
-  height: 150px;
-  float: left;
-  padding: 30px;
-} */
+.wordsView {
+  color: red;
+  font-size: 250px;
+  text-align: center;
+  border: 2px solid red;
+  background-color: white;
+}
 
-/* .imageCorn div {
-  float: left;
-  width: 150px;
-  height: 150px;
-
-} */
+.answer {
+  font-size: 50px;
+  margin: 10px;
+  background-color: pink;
+}
