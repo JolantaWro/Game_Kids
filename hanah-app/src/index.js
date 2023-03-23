@@ -8,6 +8,7 @@ import SimpleGame from './components/SimpleGame';
 import EasyGame from './components/EasyGame'
 import GameAdd from './components/GameAdd';
 import Words from './components/Words';
+import WordsEN from './components/WordsEN'
 
 const routing = (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const routing = (
       <Route path='/' element={<Start />}/>
       <Route path='/gameAdd' element={<GameAdd />}/>
       <Route path='/words' element={<Words />}/>
+      <Route path='/wordsEN' element={<WordsEN />}/>
       <Route path='/gameOne' element={<EasyGame />}/>
       <Route path='/gameTwo' element={<SimpleGame />}/>
     </Routes>

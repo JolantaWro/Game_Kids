@@ -2,7 +2,7 @@ import {React, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const Words = () => {
-    const firstWord = ["mama", "tata", "Hania", "Zosia", "Babcia"]
+    const firstWord = ["mom", "dad", "grandmother", "grandpa", "sister"]
     const [words, setWords] = useState(firstWord)
     const [isRuning, setIsRuning] = useState(false)
     const [index, setIndex] = useState(0);

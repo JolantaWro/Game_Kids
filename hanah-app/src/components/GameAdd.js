@@ -4,6 +4,7 @@ import unicorn from '../assets/images/unicorn.png'
 import corn from '../assets/images/corn.png'
 import yes from '../assets/images/yes.png'
 import no from '../assets/images/no.png'
+import goodAnswer from '../assets/images/fireworks.png'
 
 
 const GameAdd = () => {
@@ -15,6 +16,7 @@ const GameAdd = () => {
     const [arrayAnswer, setArrayAnswer] = useState([])
     const [unicornFirst, setUnicornFirst] = useState([])
     const [unicornSecond, setUnicornSecond] = useState([])
+    const [inputAnswer, setInputAnswer] = useState(null)
 
     
     function shuffle(a) {
@@ -67,6 +69,7 @@ const GameAdd = () => {
         shuffle(choices)
         setArrayAnswer(choices)
 
+
     }
 
 
@@ -84,17 +87,34 @@ const GameAdd = () => {
         setArrayAnswer([]);
         setUnicornFirst([]);
         setUnicornSecond([]);
+        setInputAnswer(null)
     };
 
 
 
     const handleRestart = () => {
         setMessage('');
+        setInputAnswer(null)
         setUnicornFirst([])
         setUnicornSecond([])
         generateQuestion();
 
     };
+    const handleSendForm = (e) => {
+        e.preventDefault();
+    }
+
+
+    useEffect(() => {
+        if(inputAnswer) {
+            if(inputAnswer === resultNum) {
+                setMessage('Gratulacje!');
+            } else if (inputAnswer !== resultNum){
+                setMessage('Błędna odpowiedź :(');
+            }  
+        }
+
+    }, [inputAnswer])
 
 
 
@@ -115,11 +135,19 @@ const GameAdd = () => {
                         }
                     </div>
                     <div>
+                        <form onSubmit={handleSendForm}>
+                            <input type="number" value={inputAnswer} onChange={(e) => setInputAnswer(parseInt(e.target.value))} className="answer"></input>
+                        </form>
+                        <button onClick={handleRestart}>Zagraj</button>
+                    </div>
+                </div>
+                        
+                <div className='test'>
                         {message === "Gratulacje!" 
                         ? 
                         <div>
                             <h1>{resultNum}</h1>
-                            <img className='imageMessage' src={yes} alt="yes" />
+                            <img className='imageMessage' src={goodAnswer} alt="goodAnswer" />
                         </div> 
                         : null}
                         {message === "Błędna odpowiedź :(" 
@@ -129,22 +157,23 @@ const GameAdd = () => {
                             <img className='imageMessage' src={no} alt="no" />
                         </div>
                         : null}
-                    </div>
-                    <div >
-                        <button onClick={handleRestart}>Zagraj</button>
-                    </div>
+                </div >
+                    
+        
+                <div className='test'>
+                    {unicornFirst.map((element) => <div>{element}</div>)}
                 </div>
                 <div className='test'>
-                    <div className='contener'>
-            
-                        <div className='imageUnicorn'>
-                            {unicornFirst.map((element) => <div>{element}</div>)}
-                        </div>
-                        <div className='imageUnicorn'>
-                            {unicornSecond.map((element) => <div>{element}</div>)}
-                        </div>
-                    </div>
+                    {unicornSecond.map((element) => <div>{element}</div>)}
                 </div>
+    
+            
+                    {/* <div className='imageUnicorn'> */}
+                            
+                    {/* </div>
+                    <div className='imageUnicorn'> */}
+                            {/* {unicornSecond.map((element) => <div>{element}</div>)} */}
+                    {/* </div> */}
             </div>
         </div>
     );
