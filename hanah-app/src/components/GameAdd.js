@@ -76,25 +76,27 @@ const GameAdd = () => {
     const handleAnswer = (option) => {
         if (option === resultNum) {
             setMessage('Gratulacje!');
+            
             // setMessage('');
             // generateQuestion();
 
         } else {
             setMessage('Błędna odpowiedź :(');
+            
             // setMessage('');
             // generateQuestion();
         }
         setArrayAnswer([]);
         setUnicornFirst([]);
         setUnicornSecond([]);
-        setInputAnswer(null)
+        setInputAnswer("")
     };
 
 
 
     const handleRestart = () => {
         setMessage('');
-        setInputAnswer(null)
+        setInputAnswer("")
         setUnicornFirst([])
         setUnicornSecond([])
         generateQuestion();
@@ -109,6 +111,7 @@ const GameAdd = () => {
         if(inputAnswer) {
             if(inputAnswer === resultNum) {
                 setMessage('Gratulacje!');
+                
             } else if (inputAnswer !== resultNum){
                 setMessage('Błędna odpowiedź :(');
             }  
